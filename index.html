@@ -22,7 +22,7 @@
         <section class="container">
             <div class="search-section">
                 <div class="search-field">
-                    <input type="search" placeholder="Search..." class="search-bar">
+                    <input id="search-bar" type="search" placeholder="Search..." class="search-bar">
                     <button id="clear-btn" class="search-button">Clear</button>
                 </div>
                 <div class="filter-field">
@@ -52,14 +52,17 @@
         <section class="container">
             <div class="blog-section">
                 <div class="blog-card-wrapper">
-                    <div class="blog-card">
+                    <div class="blog-card" id="card">
                         <div class="blog-card-image">
                             <img class="card-image" src="images/img 1.jpeg" alt="Loding...">
                         </div>
                         <div class="card-footer">
-
-                            <h6 class="movie-name">Hello, This is first card</h6>
-                            <p class="movie-ratting">4.3 Star</p>
+                            <div class="title">
+                                <h6 class="movie-name">Hello, This is first card</h6>
+                            </div>
+                            <div class="ratting-block">
+                                <p class="movie-ratting">4.3 Star</p>
+                            </div>
                         </div>
                     </div>
                 </div>
