@@ -83,6 +83,7 @@ body {
     justify-content: space-between;
     height: 360px;
     width: 500px;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075)
 }
 
 .card-image {
@@ -99,4 +100,6 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
