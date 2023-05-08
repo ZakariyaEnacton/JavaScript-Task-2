@@ -22,11 +22,49 @@
         <section class="container">
             <div class="search-section">
                 <div class="search-field">
-                    <label class="search-lbl" for="">Search : </label>
                     <input type="search" placeholder="Search..." class="search-bar">
+                    <button id="clear-btn" class="search-button">Clear</button>
                 </div>
-                <div class="filter-wrapper">
-                    <label class="filter-lbl" for="">Filter : </label>
+                <div class="filter-field">
+                    <div class="filter-ratting-wrapper">
+                        <label class="filter-lbl" for="">Filter by ratting : </label>
+                        <select name="ratting-filter" id="ratting">
+                            <option value="all">all</option>
+                            <option value="5">5 star</option>
+                            <option value="4">4 star</option>
+                            <option value="3">3 star</option>
+                            <option value="2">2 star</option>
+                            <option value="1">1 star</option>
+                        </select>
+                    </div>
+                    <div class="filter-country-wrapper">
+                        <label class="filter-lbl" for="">Filter by country : </label>
+                        <select name="country-filter" id="country">
+                            <option value="all">all</option>
+                            <option value="in">india</option>
+                            <option value="us">United State</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="blog-section">
+                <div class="blog-card-wrapper">
+                    <div class="blog-card">
+                        <div class="blog-card-image">
+                            <img class="card-image" src="images/img 1.jpeg" alt="Loding...">
+                        </div>
+                        <div class="card-footer">
+                            <div class="title">
+                                <h6 class="movie-name">Hello, This is first card</h6>
+                            </div>
+                            <div class="ratting-block">
+                                <p class="movie-ratting">4.3 Star</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
