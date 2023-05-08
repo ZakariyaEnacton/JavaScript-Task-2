@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #E0E6E3;
+}
+
+.container {
+    max-width: 1320px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    margin: 0 auto;
+}
+
+.header-logo {
+    font-size: 30px;
+    background-color: #02391E;
+    color: white;
+    padding: 20px;
+}
+
+.search-section {
+    padding: 5px;
+    margin-top: 10px;
+    background-color: #C3D0C9;
+}
+
+.search-bar {
+    padding: 5px;
+}
