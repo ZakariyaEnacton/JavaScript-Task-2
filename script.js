@@ -8,12 +8,14 @@ const blogSection = document.querySelector('.blog-section')
 
 const api_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US";
 
+
 const getData = async () => {
     const respons = await fetch(api_url)
     const data = await respons.json()
     const result = data.results
     return result;
 }
+
 
 const displayData = async (data) => {
     const display = data ? data : await getData();
@@ -46,28 +48,32 @@ displayData()
 
 
 rateFilter.addEventListener('change', async () => {
-    const filterr = await getData();
+    const rate = await getData();
 
-    // filter.filter((r) => {
-
-    //     r.vote_average <= Number(rateFilter.value)
-
-    //     console.log("filter", r.vote_average, Number(rateFilter.value));
-    // }
-    // )
-    console.log(filterr.filter(a => console.log(a.vote_average <= Number(rateFilter.value))))
+    let getVal = rateFilter.value == 'all' ? rate : rate.filter(a => a.vote_average >= Number(rateFilter.value))
     console.log(Number(rateFilter.value))
 
     // console.log(a.vote_average);
-    console.log("filter", filterr);
-    displayData(filterr)
+    console.log("filter", rate);
+    displayData(getVal)
 })
 
 langFilter.addEventListener('change', async () => {
     const lang = await getData()
 
-    lang.filter((l) => {
-        const language = l.original_language == langFilter.value
-
-    })
+    let getval = langFilter.value == 'all' ? lang : lang.filter(l => l.original_language == langFilter.value)
+    displayData(getval)
 })
+
+searchBar.addEventListener('search', async () => {
+    const searchResult = await getData()
+
+    let val = searchBar.value
+    console.log(val);
+
+    let search = searchResult.filter((s) => {
+        return s.title
+    })
+    console.log(search);
+})
+
