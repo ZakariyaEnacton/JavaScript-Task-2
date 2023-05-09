@@ -36,7 +36,7 @@ const displayData = async () => {
         return `
         <div class="blog-card" id="card">
             <div class="blog-card-image">
-                <img class="card-image" src="images/img 1.jpeg" alt="Loding...">
+                <img class="card-image" src="images/img3.jpeg" alt="Loding...">
             </div>
             <div class="card-footer">
                 <div class="title">
