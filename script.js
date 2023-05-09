@@ -9,14 +9,14 @@ const blogSection = document.querySelector('.blog-section')
 const api_url = "https://api.themoviedb.org/3/movie/upcoming?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US";
 
 const getData = async () => {
-    const respons = await fetch(api_url2)
+    const respons = await fetch(api_url)
     const data = await respons.json()
     const result = data.results
     return result;
 }
 
-const displayData = async () => {
-    const display = await getData();
+const displayData = async (data) => {
+    const display = data ? data : await getData();
 
     let value = display.map((object) => {
         const { title, vote_average, original_language, backdrop_path } = object
@@ -46,11 +46,21 @@ displayData()
 
 
 rateFilter.addEventListener('change', async () => {
-    const filter = await getData();
+    const filterr = await getData();
 
-    filter.filter((r) => {
-        r.vote_average <= rateFilter.value;
-    })
+    // filter.filter((r) => {
+
+    //     r.vote_average <= Number(rateFilter.value)
+
+    //     console.log("filter", r.vote_average, Number(rateFilter.value));
+    // }
+    // )
+    console.log(filterr.filter(a => console.log(a.vote_average <= Number(rateFilter.value))))
+    console.log(Number(rateFilter.value))
+
+    // console.log(a.vote_average);
+    console.log("filter", filterr);
+    displayData(filterr)
 })
 
 langFilter.addEventListener('change', async () => {
@@ -58,6 +68,6 @@ langFilter.addEventListener('change', async () => {
 
     lang.filter((l) => {
         const language = l.original_language == langFilter.value
-        console.log(language);
+
     })
 })
