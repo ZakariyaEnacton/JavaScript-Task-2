@@ -20,7 +20,7 @@
     return result;
   }
 
-  async function getFilteredData() {
+  function getFilteredData() {
     // return new Promise((resolve) => {
     if (filterByRating != "all" && filterByLang != "all") {
       // resolve(
@@ -34,9 +34,9 @@
         return allData.filter((a) => a.vote_average >= Number(filterByRating));
         // );
       } else if (filterByLang != "all") {
-        return resolve(
-          allData.filter((l) => l.original_language == filterByLang)
-        );
+        //  resolve(
+        return allData.filter((l) => l.original_language == filterByLang);
+        // );
       } else {
         // resolve(
         return allData;
@@ -47,7 +47,8 @@
   }
 
   const displayData = async (data) => {
-    const display = data ? data : await getData();
+    const display = data ? await data : await getData();
+    console.log("di", display, data);
 
     let value = display
       .map((object) => {
@@ -79,21 +80,13 @@
 
   rateFilter.addEventListener("change", async () => {
     filterByRating = rateFilter.value;
-    getFilteredData({
-      type: "rating",
-    }).then((filteredData) => {
-      displayData(filteredData);
-    });
+    displayData(getFilteredData());
   });
 
   langFilter.addEventListener("change", async () => {
     filterByLang = langFilter.value;
 
-    getFilteredData({
-      type: "language",
-    }).then((filteredData) => {
-      displayData(filteredData);
-    });
+    displayData(getFilteredData());
   });
 
   searchBar.addEventListener("input", async () => {
