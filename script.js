@@ -13,6 +13,7 @@ const getData = async () => {
     const respons = await fetch(api_url)
     const data = await respons.json()
     const result = data.results
+
     return result;
 }
 
@@ -74,5 +75,9 @@ searchBar.addEventListener('input', async () => {
     let search = searchResult.filter(s => s.title.toLowerCase().includes(val))
     // console.log(search);
     displayData(search)
+})
+
+clearButton.addEventListener('click', () => {
+    searchBar.value = ''
 })
 
