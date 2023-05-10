@@ -20,26 +20,30 @@
     return result;
   }
 
-  async function getFilteredData({ type }) {
-    return new Promise((resolve) => {
-      if (filterByRating != "all" && filterByLang != "all") {
-        resolve(
-          allData
-            .filter((l) => l.original_language == filterByLang)
-            .filter((a) => a.vote_average >= Number(filterByRating))
+  async function getFilteredData() {
+    // return new Promise((resolve) => {
+    if (filterByRating != "all" && filterByLang != "all") {
+      // resolve(
+      return allData
+        .filter((l) => l.original_language == filterByLang)
+        .filter((a) => a.vote_average >= Number(filterByRating));
+      // );
+    } else {
+      if (filterByRating != "all") {
+        // resolve(
+        return allData.filter((a) => a.vote_average >= Number(filterByRating));
+        // );
+      } else if (filterByLang != "all") {
+        return resolve(
+          allData.filter((l) => l.original_language == filterByLang)
         );
       } else {
-        if (filterByRating != "all") {
-          resolve(
-            allData.filter((a) => a.vote_average >= Number(filterByRating))
-          );
-        } else if (filterByLang != "all") {
-          resolve(allData.filter((l) => l.original_language == filterByLang));
-        } else {
-          resolve(allData);
-        }
+        // resolve(
+        return allData;
+        // );
       }
-    });
+    }
+    // });
   }
 
   const displayData = async (data) => {
