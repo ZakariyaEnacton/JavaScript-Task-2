@@ -65,15 +65,14 @@ langFilter.addEventListener('change', async () => {
     displayData(getval)
 })
 
-searchBar.addEventListener('search', async () => {
+searchBar.addEventListener('input', async () => {
     const searchResult = await getData()
 
-    let val = searchBar.value
-    console.log(val);
+    let val = searchBar.value.toLowerCase()
+    // console.log(val);
 
-    let search = searchResult.filter((s) => {
-        return s.title
-    })
-    console.log(search);
+    let search = searchResult.filter(s => s.title.toLowerCase().includes(val))
+    // console.log(search);
+    displayData(search)
 })
 
