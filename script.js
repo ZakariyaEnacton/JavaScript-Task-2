@@ -84,6 +84,7 @@
 
   langFilter.addEventListener("change", async () => {
     filterByLang = langFilter.value;
+
     getFilteredData({
       type: "language",
     }).then((filteredData) => {
