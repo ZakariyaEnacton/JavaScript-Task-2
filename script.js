@@ -46,11 +46,9 @@
   }
 
   function getDataBySearch() {
-    if (getFilteredData() != "all") {
-      return getFilteredData().filter((s) =>
-        s.title.toLowerCase().includes(searchBar.value.toLowerCase())
-      );
-    }
+    return getFilteredData().filter((s) =>
+      s.title.toLowerCase().includes(searchBar.value.toLowerCase())
+    );
   }
 
   const displayData = async (data) => {
