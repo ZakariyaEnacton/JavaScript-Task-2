@@ -6,11 +6,11 @@
   const blogCard = document.querySelector("#blog-card");
   const api_url =
     "https://api.themoviedb.org/3/movie/upcoming?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US";
+
   const allData = await getData();
 
   let filterByRating = "all";
   let filterByLang = "all";
-  let search;
 
   async function getData() {
     const respons = await fetch(api_url);
@@ -47,16 +47,14 @@
 
   function getDataBySearch() {
     if (getFilteredData() != "all") {
-      let val = searchBar.value.toLowerCase();
       return getFilteredData().filter((s) =>
-        s.title.toLowerCase().includes(val)
+        s.title.toLowerCase().includes(searchBar.value.toLowerCase())
       );
     }
   }
 
   const displayData = async (data) => {
     const display = data ? await data : await getData();
-    console.log("di", display);
 
     let value = display
       .map((object) => {
@@ -103,5 +101,6 @@
 
   clearButton.addEventListener("click", () => {
     searchBar.value = "";
+    displayData();
   });
 })();
