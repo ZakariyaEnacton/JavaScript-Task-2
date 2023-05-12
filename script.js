@@ -51,8 +51,6 @@
       return getFilteredData().filter((s) =>
         s.title.toLowerCase().includes(val)
       );
-    } else {
-      return alert(`Sorry, movie doesn't exist`);
     }
   }
 
