@@ -3,15 +3,14 @@
   const clearButton = document.querySelector("#clear-btn");
   const rateFilter = document.querySelector("#ratting");
   const langFilter = document.querySelector("#language");
-  const cards = document.querySelector("#card");
   const blogCard = document.querySelector("#blog-card");
-  const blogSection = document.querySelector(".blog-section");
   const api_url =
     "https://api.themoviedb.org/3/movie/upcoming?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US";
   const allData = await getData();
 
   let filterByRating = "all";
   let filterByLang = "all";
+  let search;
 
   async function getData() {
     const respons = await fetch(api_url);
@@ -46,9 +45,20 @@
     // });
   }
 
+  function getDataBySearch() {
+    if (getFilteredData() != "all") {
+      let val = searchBar.value.toLowerCase();
+      return getFilteredData().filter((s) =>
+        s.title.toLowerCase().includes(val)
+      );
+    } else {
+      return alert(`Sorry, movie doesn't exist`);
+    }
+  }
+
   const displayData = async (data) => {
     const display = data ? await data : await getData();
-    console.log("di", display, data);
+    console.log("di", display);
 
     let value = display
       .map((object) => {
@@ -90,14 +100,7 @@
   });
 
   searchBar.addEventListener("input", async () => {
-    const searchResult = await getData();
-
-    let val = searchBar.value.toLowerCase();
-
-    let search = searchResult.filter((s) =>
-      s.title.toLowerCase().includes(val)
-    );
-    displayData(search);
+    displayData(getDataBySearch());
   });
 
   clearButton.addEventListener("click", () => {
