@@ -58,6 +58,7 @@
       .map((object) => {
         const { title, vote_average, original_language, backdrop_path } =
           object;
+        console.log("Object", object);
         return `
         <div class="blog-card" id="card">
             <div class="blog-card-image">
