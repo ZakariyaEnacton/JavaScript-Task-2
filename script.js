@@ -100,6 +100,5 @@
 
   clearButton.addEventListener("click", () => {
     searchBar.value = "";
-    displayData();
   });
 })();
