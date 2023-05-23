@@ -104,8 +104,6 @@ body {
     display: grid;
     grid-gap: 5px;
     grid-template-columns: repeat(3, 1fr);
-    /* display: flex;
-    flex-wrap: wrap;*/
     align-items: center;
     margin: 0 auto 0 auto;
     justify-content: space-between;
@@ -142,3 +140,46 @@ body {
 .ratting-block {
     margin: 0 20px 0 auto;
 }
+
+@media screen and (max-width:1280px){
+    .container{
+    max-width: 1140px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    margin: 0 auto;
+    }
+}
+@media screen and (max-width:1140px){
+    .container{
+    max-width: 960px;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    margin: 0 auto;
+    }
+}
+@media screen and (max-width:960px){
+    .container{
+    max-width: 768;
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+    margin: 0 auto;
+    }    
+}
+
+@media screen and (max-width:768px){
+    .container{
+    max-width: 520px;
+    margin: 0 auto;
+    }
+    .blog-card-wrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+    .filter-field {
+        display: flex;
+        flex-direction: row;
+    }
+}
+
+
